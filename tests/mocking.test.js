@@ -2,6 +2,7 @@ import { vi, it, expect, describe, afterEach } from 'vitest';
 import {
 	getPriceInCurrency,
 	getShippingInfo,
+	isOnline,
 	login,
 	renderPage,
 	signUp,
@@ -147,5 +148,38 @@ describe('login', () => {
 
 		const securityCode = spy.mock.results[0].value.toString();
 		expect(sendEmail).toHaveBeenCalledWith(email, securityCode);
+	});
+});
+
+describe('isOnline', () => {
+	it.each([
+		{
+			scenario: 'current hour < opening hours',
+			currentDate: '2024-01-01 07:59',
+			result: false,
+		},
+		{
+			scenario: 'current hour = opening hour',
+			currentDate: '2024-01-01 08:00',
+			result: true,
+		},
+		{
+			scenario: 'current hour = closing hour - 1m',
+			currentDate: '2024-01-01 19:59',
+			result: true,
+		},
+		{
+			scenario: 'current hour = closing hour',
+			currentDate: '2024-01-01 20:00',
+			result: false,
+		},
+		{
+			scenario: 'current hour > opening hours',
+			currentDate: '2024-01-01 20:01',
+			result: false,
+		},
+	])('should return $result if $scenario', ({ currentDate, result }) => {
+		vi.setSystemTime(currentDate);
+		expect(isOnline()).toBe(result);
 	});
 });
