@@ -14,3 +14,7 @@ Test that a TV can be turned off
 Arrange: Turn on the TV
 Act: Press power button
 Assert: Verify TV is off
+
+## Mocks
+
+**Use mocks only for mocking _external_ dependencies**
