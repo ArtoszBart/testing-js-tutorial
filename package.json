@@ -11,11 +11,14 @@
     "test:ui": "vitest --ui",
     "coverage": "vitest run --coverage",
     "coverage:open": "vitest run --coverage && open coverage/index.html",
-    "format": "prettier src tests --write"
+    "format": "prettier src tests --write",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^2.1.5",
     "@vitest/ui": "^2.1.5",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.4.1",
     "typescript": "^5.7.2",
     "vite": "^5.0.0",
