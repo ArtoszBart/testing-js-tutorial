@@ -1,4 +1,4 @@
-import { vi, it, expect, describe, afterEach } from 'vitest';
+import { vi, it, expect, describe } from 'vitest';
 import {
 	getDiscount,
 	getPriceInCurrency,

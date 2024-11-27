@@ -10,11 +10,13 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "coverage": "vitest run --coverage",
-    "coverage:open": "vitest run --coverage && open coverage/index.html"
+    "coverage:open": "vitest run --coverage && open coverage/index.html",
+    "format": "prettier src tests --write"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^2.1.5",
     "@vitest/ui": "^2.1.5",
+    "prettier": "^3.4.1",
     "vite": "^5.0.0",
     "vitest": "^2.1.5"
   },
